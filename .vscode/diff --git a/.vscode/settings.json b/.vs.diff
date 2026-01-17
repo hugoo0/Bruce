@@ -1,0 +1,84 @@
+diff --git a/.vscode/settings.json b/.vscode/settings.json
+--- .vscode/settings.json
++++ .vscode/settings.json
+@@ -4,11 +4,9 @@
+         "source.organizeImports": "explicit"
+     },
+     "editor.detectIndentation": true,
+     "editor.guides.bracketPairs": "active",
+-
+     "idf.portWin": "COM4",
+-
+     "files.associations": {
+         "Jenkinsfile": "groovy",
+         "*.toml": "properties",
+         "iosfwd": "cpp",
+@@ -73,23 +71,23 @@
+         "thread": "cpp"
+     },
+     "files.trimTrailingWhitespace": true,
+     "files.insertFinalNewline": true,
+-
+     "githubPullRequests.ignoredPullRequestBranches": [
+         "main"
+     ],
+-
+     "cmake.ignoreCMakeListsMissing": true,
+     "cmake.sourceDirectory": "C:/Projetos/Bruce/lib/M5GFX",
+-
+     "[cpp]": {
+         "editor.defaultFormatter": "ms-vscode.cpptools",
+-        "editor.rulers": [120],
++        "editor.rulers": [
++            120
++        ],
+         "editor.tabSize": 4,
+         "editor.formatOnSave": true,
+         "editor.codeActionsOnSave": {
+             "source.organizeImports": "explicit"
+         },
+         "editor.formatOnType": true,
+     },
++    "github.copilot.nextEditSuggestions.enabled": true,
+ }
+diff --git a/.vscode/launch.json b/.vscode/launch.json
+new file mode 100644
+--- /dev/null
++++ b/.vscode/launch.json
+@@ -0,0 +1,37 @@
++{
++    // Use IntelliSense to learn about possible attributes.
++    // Hover to view descriptions of existing attributes.
++    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
++    "version": "0.2.0",
++    "configurations": [
++        {
++            "name": "Python Debugger: Remote Attach",
++            "type": "debugpy",
++            "request": "attach",
++            "connect": {
++                "host": "localhost",
++                "port": 5678
++            },
++            "pathMappings": [
++                {
++                    "localRoot": "${workspaceFolder}",
++                    "remoteRoot": "."
++                }
++            ]
++        },
++        {
++            "name": "Debug",
++            "type": "powercpp",
++            "request": "launch"
++        },
++        {
++            "type": "vgdb",
++            "request": "launch",
++            "name": "C/C++ Debug",
++            "program": "${workspaceFolder}/a.out",
++            "args": [],
++            "cwd": "${workspaceFolder}"
++        }
++    ]
++}
