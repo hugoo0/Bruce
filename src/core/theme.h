@@ -24,6 +24,7 @@ struct themeFiles {
     String config = "";
     String boot_img = "";
     String boot_sound = "";
+    String lora = "";
 };
 
 struct themeInfo {
@@ -49,7 +50,7 @@ struct themeInfo {
     bool config = false;
     bool boot_img = false;
     bool boot_sound = false;
-
+    bool lora = false;
     // Theme file paths, colors and border
     themeFiles paths;
 };
@@ -67,7 +68,7 @@ public:
     // UI Color
     void _setUiColor(uint16_t primary, uint16_t *secondary = nullptr, uint16_t *background = nullptr);
 
-    bool openThemeFile(FS *fs, String filepath);
+    bool openThemeFile(FS *fs, String filepath, bool overwriteConfigSettings);
     bool validateImgFile(FS *fs, String filepath);
     String getThemeItemImg(String item) {
         return themePath.substring(0, themePath.lastIndexOf('/')) + "/" + item;
