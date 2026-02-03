@@ -104,4 +104,5 @@
         "editor.formatOnType": true,
     },
     "github.copilot.nextEditSuggestions.enabled": true,
+    "terminal.integrated.windowsUseConptyDll": true,
 }
